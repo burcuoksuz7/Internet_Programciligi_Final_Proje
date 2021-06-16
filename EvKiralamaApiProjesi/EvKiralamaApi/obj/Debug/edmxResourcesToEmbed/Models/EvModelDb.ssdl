@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Evler">
+    <Key>
+      <PropertyRef Name="evId" />
+    </Key>
+    <Property Name="evId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="evFiyat" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="evKat" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="evMetrekare" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="evOdaSayisi" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="evIsinma" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="evBanyoSayisi" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="evAdres" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="evEsya" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="evYas" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="evGorsel" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="evKategoriId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kategori">
+    <Key>
+      <PropertyRef Name="kategoriId" />
+    </Key>
+    <Property Name="kategoriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kategoriAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Uye">
+    <Key>
+      <PropertyRef Name="uyeId" />
+    </Key>
+    <Property Name="uyeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uyeAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="uyeSoyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="uyeTel" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="uyeMail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="uyeParola" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="uyeYetki" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Evler_KategoriEv">
+    <End Role="Kategori" Type="Self.Kategori" Multiplicity="1" />
+    <End Role="Evler" Type="Self.Evler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategori">
+        <PropertyRef Name="kategoriId" />
+      </Principal>
+      <Dependent Role="Evler">
+        <PropertyRef Name="evKategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="Evler" EntityType="Self.Evler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Uye" EntityType="Self.Uye" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Evler_KategoriEv" Association="Self.FK_Evler_KategoriEv">
+      <End Role="Kategori" EntitySet="Kategori" />
+      <End Role="Evler" EntitySet="Evler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
