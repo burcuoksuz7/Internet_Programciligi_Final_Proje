@@ -1,0 +1,71 @@
+<h2 mat-dialog-title>{{dialogBaslik}}</h2>
+<mat-dialog-content>
+  <form [formGroup]="form">  
+
+<mat-form-field appearance="fill">
+   <mat-label>Ev Fiyat</mat-label>
+   <input matInput placeholder="Ev Fiyat" formControlName="evFiyat" name="evFiyat" required type="number">
+ </mat-form-field>
+
+
+ <mat-form-field appearance="fill">
+     <mat-label>Ev Kat</mat-label>
+  <input matInput placeholder="Ev Kat" formControlName="evKat" name="evKat" required type="text">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Metrekare</mat-label>
+  <input matInput placeholder="Metrekare" formControlName="evMetrekare" name="evMetrekare" required type="text">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Oda Sayısı</mat-label>
+  <input matInput placeholder="Oda Sayısı" formControlName="evOdaSayisi" name="evOdaSayisi" required type="text">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+ <mat-label>Isınma</mat-label>
+ <input matInput placeholder="Isınma" formControlName="evIsinma" name="evIsinma" required type="text">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+ <mat-label>Banyo Sayısı</mat-label>
+ <input matInput placeholder="Banyo Sayısı" formControlName="evBanyoSayisi" name="evBanyoSayisi" required type="text">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Adres</mat-label>
+  <input matInput placeholder="Adres" formControlName="evAdres" name="evAdres" required type="text">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+ <mat-label>Eşya Durumu</mat-label>
+ <input matInput placeholder="Eşya Durumu" formControlName="evEsya" name="evEsya" required type="text">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+ <mat-label>Bina Yaşı</mat-label>
+ <input matInput placeholder="Bina Yaşı" formControlName="evYas" name="evYas" required type="text">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Görsel</mat-label>
+  <input matInput placeholder="Görsel" formControlName="evGorsel" name="evGorsel" required type="text">
+ </mat-form-field>
+
+ <mat-form-field appearance="fill">
+  <mat-label>Ev Kategorisi</mat-label>
+  <mat-select matInput formControlName="evKategoriId" name="evKategoriId" required>
+    <mat-option *ngFor="let kategori of kategoriler" [value]="kategori.kategoriId">{{kategori.kategoriAd}}</mat-option>
+</mat-select>
+</mat-form-field>
+
+</form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button color="primary" mat-button mat-dialog-close (click)="dialogRef.close(form.value)">Ekle</button> &nbsp;
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button color="warn"mat-button (click)="dialogRef.close()">Vazgeç</button>
+</mat-dialog-actions>
+

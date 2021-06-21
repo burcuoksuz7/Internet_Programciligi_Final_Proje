@@ -1,0 +1,20 @@
+
+
+<div class="container mt-5">
+  <div class="row">
+
+    <div class="col-md-12"></div>
+    <div class="col-md-12"><form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">E-posta Adresi</label>
+        <input type="email" class="form-control" #email  placeholder="E-posta giriniz...">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Parola</label>
+        <input type="password" class="form-control" #parola placeholder="Parola...">
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="girisYap(email.value,parola.value)">Giriş Yap</button>
+    </form></div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

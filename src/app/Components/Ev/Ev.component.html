@@ -1,0 +1,96 @@
+<br>
+<div>
+  <button (click)="evekle()" mat-mini-fab color="primary" aria-label="Example icon button with a home icon">
+    <mat-icon>add</mat-icon>
+  </button>
+  
+</div>
+
+<br>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="evFiyat">
+    <th mat-header-cell *matHeaderCellDef> Ev Fiyat </th>
+    <td mat-cell *matCellDef="let ev"> {{ev.evFiyat}} ₺ </td>
+  </ng-container>
+
+  <ng-container matColumnDef="evKat">
+    <th mat-header-cell *matHeaderCellDef> Ev Kat </th>
+    <td mat-cell *matCellDef="let ev"> {{ev.evKat}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="evMetrekare">
+    <th mat-header-cell *matHeaderCellDef> Ev Metrekare </th>
+    <td mat-cell *matCellDef="let ev"> {{ev.evMetrekare}} m² </td>
+  </ng-container>
+
+  <ng-container matColumnDef="evOdaSayisi">
+    <th mat-header-cell *matHeaderCellDef> Ev Oda Sayisi </th>
+    <td mat-cell *matCellDef="let ev"> {{ev.evOdaSayisi}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="evIsinma">
+    <th mat-header-cell *matHeaderCellDef> Ev Isinma </th>
+    <td mat-cell *matCellDef="let ev"> {{ev.evIsinma}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="evBanyoSayisi">
+    <th mat-header-cell *matHeaderCellDef> Ev Banyo Sayisi </th>
+    <td mat-cell *matCellDef="let ev"> {{ev.evBanyoSayisi}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="evAdres">
+    <th mat-header-cell *matHeaderCellDef> Ev Adres </th>
+    <td mat-cell *matCellDef="let ev"> {{ev.evAdres}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="evEsya">
+    <th mat-header-cell *matHeaderCellDef> Ev Esya </th>
+    <td mat-cell *matCellDef="let ev"> {{ev.evEsya}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="evYas">
+    <th mat-header-cell *matHeaderCellDef> Ev Yas </th>
+    <td mat-cell *matCellDef="let ev"> {{ev.evYas}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="evGorsel">
+    <th mat-header-cell *matHeaderCellDef> Ev Gorsel </th>
+    <td mat-cell *matCellDef="let ev"> <img src="{{ev.evGorsel}}" alt="" width="50px"></td>
+  </ng-container>
+
+  <ng-container matColumnDef="evKategoriAd">
+    <th mat-header-cell *matHeaderCellDef> Ev Kategori Ad </th>
+    <td mat-cell *matCellDef="let ev"> {{ev.evKategoriAd}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Duzenle">
+    <th mat-header-cell *matHeaderCellDef> Duzenle </th>
+    <td mat-cell *matCellDef="let ev"> <button (click)="evduzenle(ev)" mat-mini-fab color="primary" aria-label="Example icon button with a home icon">
+      <mat-icon>edit</mat-icon>
+    </button> </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Sil">
+    <th mat-header-cell *matHeaderCellDef> Sil </th>
+    <td mat-cell *matCellDef="let ev"> <button (click)="evSil(ev.evId)" mat-mini-fab color="warn" aria-label="Example icon button with a home icon">
+      <mat-icon>delete</mat-icon>
+    </button>
+   </td>
+  </ng-container>
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
